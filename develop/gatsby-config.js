@@ -15,15 +15,6 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    `gatsby-plugin-postcss`,
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        cssLoaderOptions: {
-          camelCase: false,
-        },
-      },
-    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
