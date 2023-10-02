@@ -8,17 +8,26 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          red: "#800",
-          dark_red: "#691819",
-          low_dark: "#666",
-          gray: "#555",
-          dark_gray: "#888",
-          dark: "#eee",
+          dark: "#0B0D17",
+          blue: "#D0D6F9",
+          light: "#FFFFFF",
         },
       },
 
       fontFamily: {
-        cinzel: ["Cinzel", "serif"],
+        bellefair: ["Bellefair", "serif"],
+        barlow: ["Barlow", "sans-serif"],
+      },
+
+      fontSize: {
+        head1: "150px",
+        head2: "100px",
+        head3: "56px",
+        head4: "32px",
+        head5: "28px",
+        subhead1: "28px",
+        subhead2: "14px",
+        navtext: "16px",
       },
     },
   },
