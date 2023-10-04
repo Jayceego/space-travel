@@ -7,3 +7,55 @@
 body {
   background-color: #0b0d17;
 }
+
+.nav-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40.774227142333984px);
+  width: auto;
+  height: 100%;
+}
+.nav-glass > * {
+  height: 96px;
+}
+.nav-active {
+  border-bottom: 3px solid white;
+}
+
+.nav-glass > a:not(.nav-active):hover {
+  transition: all ease-in-out;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: all ease-in-out;
+  -moz-transition: all ease-in-out;
+  -ms-transition: all ease-in-out;
+  -o-transition: all ease-in-out;
+}
+
+.line {
+  left: calc(25vw - 10%);
+  width: calc(40vw - 60px);
+  height: 1px;
+  opacity: 0.2515;
+  background: #fff;
+  z-index: 1;
+}
+
+.explore-btn::before {
+  transition: all ease-in-out 300ms;
+  -webkit-transition: all ease-in-out 300ms;
+  -moz-transition: all ease-in-out 300ms;
+  -ms-transition: all ease-in-out 300ms;
+  -o-transition: all ease-in-out 300ms;
+}
+
+.explore-btn:hover::before {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 450px;
+  height: 450px;
+  background-color: #ffffff21;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
