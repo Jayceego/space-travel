@@ -15,7 +15,7 @@ module.exports = {
 
       fontFamily: {
         bellefair: ["Bellefair", "serif"],
-        barlow: ["Barlow", "sans-serif"],
+        barlow: ["Barlow Condensed", "sans-serif"],
       },
 
       fontSize: {
@@ -27,6 +27,12 @@ module.exports = {
         subhead1: "28px",
         subhead2: ["14px", "2.35px"],
         navtext: ["16px", "2.7px"],
+      },
+
+      backgroundImage: {
+        desktop: "url('../images/background-home-desktop.jpg')",
+        tablet: "url('../images/background-home-tablet.jpg')",
+        mobile: "url('../images/background-home-mobile.jpg')",
       },
     },
   },

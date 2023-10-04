@@ -9,8 +9,9 @@ export default function IndexPage({ data }) {
   const dest = data.allMarkdownRemark.nodes
   return (
     <div>
+      <div className="absolute w-screen h-screen bg-no-repeat bg-cover -z-10 bg-mobile md:bg-tablet lg:bg-desktop"></div>
       <Navbar />
-      {dest.map((node, index) => {
+      {/* {dest.map((node, index) => {
         const img = getImage(node.frontmatter.path?.childImageSharp)
         return (
           <div key={index.id}>
@@ -30,7 +31,7 @@ export default function IndexPage({ data }) {
             />
           </div>
         )
-      })}
+      })} */}
     </div>
   )
 }
