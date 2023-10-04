@@ -17,6 +17,13 @@ body {
 .nav-glass > * {
   height: 96px;
 }
+.nav-active {
+  border-bottom: 3px solid white;
+}
+
+.nav-glass > a:not(.nav-active):hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
 
 .line {
   left: calc(25vw - 10%);

@@ -1,60 +1,14 @@
 import * as React from "react"
 import Seo from "../components/seo"
 import "../styles/global.css"
-import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Navbar from "../components/Navbar"
+import Layout from "../components/Layout"
 
-export default function IndexPage({ data }) {
-  const dest = data.allMarkdownRemark.nodes
+export default function IndexPage() {
   return (
-    <div>
-      <div className="absolute w-screen h-screen bg-no-repeat bg-cover -z-10 bg-mobile md:bg-tablet lg:bg-desktop"></div>
-      <Navbar />
-      {/* {dest.map((node, index) => {
-        const img = getImage(node.frontmatter.path?.childImageSharp)
-        return (
-          <div key={index.id}>
-            <h1 className="text-white font-bellefair text-head2">
-              {node.frontmatter.title}
-            </h1>
-            <h2 className="text-white font-bellefair text-subhead1">
-              {node.frontmatter.distance}
-            </h2>
-            <h2 className="text-white font-bellefair text-subhead1">
-              {node.frontmatter.time}
-            </h2>
-            <GatsbyImage image={img} alt={`Image ${index}`} />
-            <div
-              className="text-lg text-white font-barlow"
-              dangerouslySetInnerHTML={{ __html: node.html }}
-            />
-          </div>
-        )
-      })} */}
-    </div>
+    <Layout>
+      <div className="absolute top-0 w-screen h-full bg-center bg-no-repeat bg-cover -z-10 bg-mobile md:bg-tablet lg:bg-desktop"></div>
+    </Layout>
   )
 }
 
 export const Head = () => <Seo title="Home" />
-
-export const query = graphql`
-  query MyQuery {
-    allMarkdownRemark {
-      nodes {
-        id
-        html
-        frontmatter {
-          distance
-          time
-          title
-          path {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  }
-`

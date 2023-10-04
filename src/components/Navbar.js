@@ -1,7 +1,9 @@
 import { Link } from "gatsby"
 import React from "react"
+import { useLocation } from "@reach/router"
 
 export default function Navbar() {
+  const location = useLocation()
   return (
     <div className="flex items-center pt-8 justify-between sm:pt-0 w-screen sm:pr-0 pr-[5vw]">
       <div className="flex items-center justify-between w-screen md:pt-16 pl-[5vw]">
@@ -26,19 +28,47 @@ export default function Navbar() {
 
         {/* links */}
         <div className="hidden sm:flex justify-end text-white gap-[5vw] nav-glass px-[5vw] md:px-[10vw] font-barlow text-navtext">
-          <Link className="flex items-center gap-2 font-normal uppercase ">
+          <Link
+            to="/"
+            className={
+              location.pathname === "/"
+                ? "nav-active flex items-center gap-2 font-normal uppercase "
+                : "flex items-center gap-2 font-normal uppercase "
+            }
+          >
             <span className="hidden font-bold md:block">00</span>
             home
           </Link>
-          <Link className="flex items-center gap-2 font-normal uppercase ">
+          <Link
+            to="/moon"
+            className={
+              location.pathname === "/moon"
+                ? "nav-active flex items-center gap-2 font-normal uppercase "
+                : "flex items-center gap-2 font-normal uppercase "
+            }
+          >
             <span className="hidden font-bold md:block">01</span>
             destination
           </Link>
-          <Link className="flex items-center gap-2 font-normal uppercase ">
+          <Link
+            to="/crew"
+            className={
+              location.pathname === "/crew"
+                ? "nav-active flex items-center gap-2 font-normal uppercase "
+                : "flex items-center gap-2 font-normal uppercase "
+            }
+          >
             <span className="hidden font-bold md:block">02</span>
             crew
           </Link>
-          <Link className="flex items-center gap-2 font-normal uppercase ">
+          <Link
+            to="/technology"
+            className={
+              location.pathname === "/technology"
+                ? "nav-active flex items-center gap-2 font-normal uppercase "
+                : "flex items-center gap-2 font-normal uppercase "
+            }
+          >
             <span className="hidden font-bold md:block">03</span>
             technology
           </Link>
