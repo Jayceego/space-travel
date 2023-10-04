@@ -38,3 +38,24 @@ body {
   background: #fff;
   z-index: 1;
 }
+
+.explore-btn::before {
+  transition: all ease-in-out 300ms;
+  -webkit-transition: all ease-in-out 300ms;
+  -moz-transition: all ease-in-out 300ms;
+  -ms-transition: all ease-in-out 300ms;
+  -o-transition: all ease-in-out 300ms;
+}
+
+.explore-btn:hover::before {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 450px;
+  height: 450px;
+  background-color: #ffffff21;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
