@@ -30,9 +30,30 @@ module.exports = {
       },
 
       backgroundImage: {
-        desktop: "url('../images/background-home-desktop.jpg')",
-        tablet: "url('../images/background-home-tablet.jpg')",
-        mobile: "url('../images/background-home-mobile.jpg')",
+        homeDesktop:
+          "url('../images/backgrounds/home/background-home-desktop.jpg')",
+        homeTablet:
+          "url('../images/backgrounds/home/background-home-tablet.jpg')",
+        homeMobile:
+          "url('../images/backgrounds/home/background-home-mobile.jpg')",
+        destinationDesktop:
+          "url('../images/backgrounds/destination/background-destination-desktop.jpg')",
+        destinationTablet:
+          "url('../images/backgrounds/destination/background-destination-tablet.jpg')",
+        destinationMobile:
+          "url('../images/backgrounds/destination/background-destination-mobile.jpg')",
+        crewDesktop:
+          "url('../images/backgrounds/crew/background-crew-desktop.jpg')",
+        crewTablet:
+          "url('../images/backgrounds/crew/background-crew-tablet.jpg')",
+        crewMobile:
+          "url('../images/backgrounds/crew/background-crew-mobile.jpg')",
+        technologyDesktop:
+          "url('../images/backgrounds/technology/background-technology-desktop.jpg')",
+        technologyTablet:
+          "url('../images/backgrounds/technology/background-technology-tablet.jpg')",
+        technologyMobile:
+          "url('../images/backgrounds/technology/background-technology-mobile.jpg')",
       },
     },
   },

@@ -40,9 +40,9 @@ export default function Navbar() {
             home
           </Link>
           <Link
-            to="/moon"
+            to="/destination/moon/"
             className={
-              location.pathname === "/moon"
+              location.pathname === "/destination/moon/"
                 ? "nav-active flex items-center gap-2 font-normal uppercase "
                 : "flex items-center gap-2 font-normal uppercase "
             }
@@ -51,9 +51,9 @@ export default function Navbar() {
             destination
           </Link>
           <Link
-            to="/crew"
+            to="/crew/commander/"
             className={
-              location.pathname === "/crew"
+              location.pathname === "/crew/commander/"
                 ? "nav-active flex items-center gap-2 font-normal uppercase "
                 : "flex items-center gap-2 font-normal uppercase "
             }
@@ -62,9 +62,9 @@ export default function Navbar() {
             crew
           </Link>
           <Link
-            to="/technology"
+            to="/technology/launchvehicle/"
             className={
-              location.pathname === "/technology"
+              location.pathname === "/technology/launchvehicle/"
                 ? "nav-active flex items-center gap-2 font-normal uppercase "
                 : "flex items-center gap-2 font-normal uppercase "
             }

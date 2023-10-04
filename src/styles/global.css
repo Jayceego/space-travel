@@ -22,7 +22,12 @@ body {
 }
 
 .nav-glass > a:not(.nav-active):hover {
+  transition: all ease-in-out;
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: all ease-in-out;
+  -moz-transition: all ease-in-out;
+  -ms-transition: all ease-in-out;
+  -o-transition: all ease-in-out;
 }
 
 .line {
