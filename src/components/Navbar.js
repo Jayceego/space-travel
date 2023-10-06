@@ -10,9 +10,19 @@ export default function Navbar() {
     setVisible(!visible)
   }
 
+  const handleKeyPress = event => {
+    if (event.key === "Enter") {
+      toggleNavbar()
+    }
+  }
+
   const pageLinks = [
     { number: "00", page: "home", path: "/" },
-    { number: "01", page: "destination", path: "/destination/Moon/" },
+    {
+      number: "01",
+      page: "destination",
+      path: "/destination/",
+    },
     { number: "02", page: "crew", path: "/crew/commander/" },
     { number: "03", page: "technology", path: "/technology/launchvehicle/" },
   ]
@@ -83,6 +93,9 @@ export default function Navbar() {
         <div
           className={` ${visible ? "hidden" : "block sm:hidden mt-6"}`}
           onClick={toggleNavbar}
+          onKeyDown={handleKeyPress}
+          role="button"
+          tabIndex="0"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
             <g fill="#D0D6F9" fill-rule="evenodd">
@@ -97,6 +110,9 @@ export default function Navbar() {
             visible ? "block sm:hidden absolute top-10 right-7" : "hidden"
           } transition-all`}
           onClick={toggleNavbar}
+          onKeyDown={handleKeyPress}
+          role="button"
+          tabIndex="0"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21">
             <g fill="#D0D6F9" fill-rule="evenodd">

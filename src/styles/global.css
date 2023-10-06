@@ -24,6 +24,14 @@ body {
   border-right: 3px solid white;
 }
 
+.active {
+  border-bottom: 3px solid white;
+}
+
+.planet-nav:not(.active) {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
 .nav-glass > a:not(.nav-active, .right-border):hover {
   transition: all ease-in-out;
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
