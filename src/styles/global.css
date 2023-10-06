@@ -39,23 +39,70 @@ body {
   z-index: 1;
 }
 
-.explore-btn::before {
-  transition: all ease-in-out 300ms;
-  -webkit-transition: all ease-in-out 300ms;
-  -moz-transition: all ease-in-out 300ms;
-  -ms-transition: all ease-in-out 300ms;
-  -o-transition: all ease-in-out 300ms;
-}
-
 .explore-btn:hover::before {
   content: "";
   position: absolute;
   border-radius: 100%;
-  width: 450px;
-  height: 450px;
+  width: 250px;
+  height: 250px;
   background-color: #ffffff21;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
+}
+
+.explore-btn {
+  width: clamp(100px, 60vw, 144px);
+  height: clamp(100px, 60vw, 144px);
+}
+
+/* BREAKPOINTS */
+
+@media (min-width: 1024px) {
+  /* .explore-btn:hover::before {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    width: 450px;
+    height: 450px;
+    background-color: #ffffff21;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+  } */
+}
+@media (min-width: 768px) {
+  .explore-btn:hover::before {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    width: 400px !important;
+    height: 400px !important;
+    background-color: #ffffff21;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .explore-btn {
+    width: clamp(100px, 60vw, 240px);
+    height: clamp(100px, 60vw, 240px);
+  }
+  .explore-btn:hover::before {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    width: 350px;
+    height: 350px;
+    background-color: #ffffff21;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+  }
 }
