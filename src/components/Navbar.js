@@ -1,16 +1,34 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import { useLocation } from "@reach/router"
 
 export default function Navbar() {
   const location = useLocation()
+  const [visible, setVisible] = useState(false)
+
+  const toggleNavbar = () => {
+    setVisible(!visible)
+  }
+
+  const pageLinks = [
+    { number: "00", page: "home", path: "/" },
+    { number: "01", page: "destination", path: "/destination/moon/" },
+    { number: "02", page: "crew", path: "/crew/commander/" },
+    { number: "03", page: "technology", path: "/technology/launchvehicle/" },
+  ]
   return (
     <div className="absolute">
-      <div className="flex items-center pt-8 justify-between sm:pt-0 w-screen sm:pr-0 pr-[5vw]">
-        <div className="flex items-center justify-between w-screen md:pt-16 pl-[5vw]">
+      <div
+        className={`${
+          visible
+            ? "pr-0"
+            : "flex items-center justify-between sm:pt-0 w-screen sm:pr-0 pr-[5vw]"
+        }`}
+      >
+        <div className="flex sm:items-center justify-between w-screen md:pt-16 pl-[5vw]">
           {/* logo */}
           <svg
-            className="flex items-centers"
+            className="flex mt-6 sm:mt-0 items-centers"
             xmlns="http://www.w3.org/2000/svg"
             height="48px"
             width="48px"
@@ -28,57 +46,62 @@ export default function Navbar() {
           <div className="absolute hidden line md:block"></div>
 
           {/* links */}
-          <div className="hidden sm:flex justify-end text-white gap-[5vw] nav-glass px-[5vw] md:px-[10vw] font-barlow text-navtext">
-            <Link
-              to="/"
-              className={
-                location.pathname === "/"
-                  ? "nav-active flex items-center gap-2 font-normal uppercase "
-                  : "flex items-center gap-2 font-normal uppercase "
-              }
-            >
-              <span className="hidden font-bold md:block">00</span>
-              home
-            </Link>
-            <Link
-              to="/destination/moon/"
-              className={
-                location.pathname === "/destination/moon/"
-                  ? "nav-active flex items-center gap-2 font-normal uppercase "
-                  : "flex items-center gap-2 font-normal uppercase "
-              }
-            >
-              <span className="hidden font-bold md:block">01</span>
-              destination
-            </Link>
-            <Link
-              to="/crew/commander/"
-              className={
-                location.pathname === "/crew/commander/"
-                  ? "nav-active flex items-center gap-2 font-normal uppercase "
-                  : "flex items-center gap-2 font-normal uppercase "
-              }
-            >
-              <span className="hidden font-bold md:block">02</span>
-              crew
-            </Link>
-            <Link
-              to="/technology/launchvehicle/"
-              className={
-                location.pathname === "/technology/launchvehicle/"
-                  ? "nav-active flex items-center gap-2 font-normal uppercase "
-                  : "flex items-center gap-2 font-normal uppercase "
-              }
-            >
-              <span className="hidden font-bold md:block">03</span>
-              technology
-            </Link>
+          <div
+            className={`sm:flex justify-end text-white gap-[5vw] nav-glass sm:px-[5vw] md:px-[10vw] font-barlow text-navtext ${
+              visible
+                ? "block px-0 pl-[5vw] h-screen sm:h-full pt-32"
+                : "hidden"
+            }`}
+          >
+            {pageLinks.map((link, index) => (
+              <Link
+                key={index}
+                to={link.path}
+                className={` items-center gap-2 uppercase flex ${
+                  location.pathname === link.path ? "nav-active" : ""
+                }
+                ${
+                  visible
+                    ? "w-[60vw] right-border mt-8"
+                    : "w-auto remove-right font-normal"
+                }`}
+              >
+                <span
+                  className={`${
+                    visible ? "block font-bold" : "hidden font-bold md:block"
+                  }`}
+                >
+                  {link.number}
+                </span>
+                {link.page}
+              </Link>
+            ))}
           </div>
         </div>
-        <div className="sm:hidden">
+
+        {/* Hamburger */}
+        <div
+          className={` ${visible ? "hidden" : "block sm:hidden mt-6"}`}
+          onClick={toggleNavbar}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
             <g fill="#D0D6F9" fill-rule="evenodd">
               <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
+            </g>
+          </svg>
+        </div>
+
+        {/* close hamburger */}
+        <div
+          className={` ${
+            visible ? "block sm:hidden absolute top-10 right-7" : "hidden"
+          } transition-all`}
+          onClick={toggleNavbar}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21">
+            <g fill="#D0D6F9" fill-rule="evenodd">
+              <path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z" />
+              <path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z" />
             </g>
           </svg>
         </div>
