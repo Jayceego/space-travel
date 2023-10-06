@@ -11,7 +11,7 @@ export default function IndexPage({ data }) {
       <div className="grid items-end h-screen grid-rows-2 text-center lg:text-left lg:grid-rows-none lg:grid-cols-2 justify-items-center ">
         {/* contents */}
         <div className="grid justify-center sm:h-screen place-items-center lg:place-items-start lg:pb-32 sm:justify-between sm:content-end ">
-          <h3 className="text-base font-normal leading-none text-primary-blue sm:text-xl md:text-head5 font-barlow">
+          <h3 className="text-base font-normal leading-none text-primary-blue sm:text-xl md:text-head5 font-barlowC">
             {homeData[0].frontmatter.quote}
           </h3>
           <h1 className="font-normal leading-snug text-white font-bellefair text-8xl sm:text-head1">

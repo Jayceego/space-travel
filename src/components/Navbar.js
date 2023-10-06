@@ -12,12 +12,12 @@ export default function Navbar() {
 
   const pageLinks = [
     { number: "00", page: "home", path: "/" },
-    { number: "01", page: "destination", path: "/destination/moon/" },
+    { number: "01", page: "destination", path: "/destination/Moon/" },
     { number: "02", page: "crew", path: "/crew/commander/" },
     { number: "03", page: "technology", path: "/technology/launchvehicle/" },
   ]
   return (
-    <div className="absolute">
+    <div className="absolute z-10">
       <div
         className={`${
           visible
@@ -47,7 +47,7 @@ export default function Navbar() {
 
           {/* links */}
           <div
-            className={`sm:flex justify-end text-white gap-[5vw] nav-glass sm:px-[5vw] md:px-[10vw] font-barlow text-navtext ${
+            className={`sm:flex justify-end text-white gap-[5vw] nav-glass sm:px-[5vw] md:px-[10vw] font-barlowC text-navtext ${
               visible
                 ? "block px-0 pl-[5vw] h-screen sm:h-full pt-32"
                 : "hidden"
