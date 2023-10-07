@@ -2,6 +2,13 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import { useLocation } from "@reach/router"
 
+export const pageLinks = [
+  { number: "00", page: "home", path: "/" },
+  { number: "01", page: "destination", path: "/destination/moon/" },
+  { number: "02", page: "crew", path: "/crew/commander/" },
+  { number: "03", page: "technology", path: "/technology/launchvehicle/" },
+]
+
 export default function Navbar() {
   const location = useLocation()
   const [visible, setVisible] = useState(false)
@@ -16,16 +23,6 @@ export default function Navbar() {
     }
   }
 
-  const pageLinks = [
-    { number: "00", page: "home", path: "/" },
-    {
-      number: "01",
-      page: "destination",
-      path: "/destination/",
-    },
-    { number: "02", page: "crew", path: "/crew/commander/" },
-    { number: "03", page: "technology", path: "/technology/launchvehicle/" },
-  ]
   return (
     <div className="absolute z-10">
       <div

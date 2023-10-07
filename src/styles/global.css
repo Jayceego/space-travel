@@ -8,6 +8,11 @@ body {
   background-color: #0b0d17;
 }
 
+.divider {
+  height: 1px;
+  background: #383b4b;
+}
+
 .nav-glass {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(40.774227142333984px);
@@ -28,7 +33,7 @@ body {
   border-bottom: 3px solid white;
 }
 
-.planet-nav:not(.active) {
+.planet-nav:not(.active):hover {
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
