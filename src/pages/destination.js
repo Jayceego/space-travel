@@ -1,13 +1,34 @@
-import { Link, graphql } from "gatsby"
+import { Link, graphql, navigate } from "gatsby"
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../../components/Layout"
+import Layout from "../components/Layout"
+
+export const query = graphql`
+  query MyQuery($slug: String) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        distance
+        time
+        slug
+        title
+        path {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`
 
 export default function Destination({ data }) {
-  const html = data.allMarkdownRemark.nodes[0].html
-  const { time, title, distance, path, slug } =
-    data.allMarkdownRemark.nodes[0].frontmatter
+  console.log(data)
+  const html = data.markdownRemark.html
+  const { time, title, distance, path, slug } = data.markdownRemark.frontmatter
   const planet = ["moon", "mars", "europa", "titan"]
+
+  console.log("IMAGEEE : ", time, title, distance, path, slug, html)
 
   return (
     <Layout>
@@ -36,8 +57,9 @@ export default function Destination({ data }) {
           <div className="flex mb-4 gap-9 md:mb-9">
             {planet.map((destination, index) => (
               <Link
+                onClick={() => navigate(`/destination/${destination}`)}
                 key={index}
-                to={destination}
+                to={`/destination/${destination}`}
                 className={`text-base font-normal uppercase planet-nav font-barlowC text-primary-blue ${
                   destination === slug ? "active" : "not-active"
                 }`}
@@ -81,24 +103,3 @@ export default function Destination({ data }) {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query MyQuery {
-    allMarkdownRemark(sort: { frontmatter: { page: ASC } }, limit: 4) {
-      nodes {
-        html
-        frontmatter {
-          distance
-          time
-          title
-          slug
-          path {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  }
-`
