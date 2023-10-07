@@ -1,18 +1,37 @@
-// /**
-//  * Implement Gatsby's Node APIs in this file.
-//  *
-//  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
-//  */
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
 
-// /**
-//  * @type {import('gatsby').GatsbyNode['createPages']}
-//  */
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions
-//   createPage({
-//     path: "/using-dsg",
-//     component: require.resolve("./src/templates/using-dsg.js"),
-//     context: {},
-//     defer: true,
-//   })
-// }
+  const result = await graphql(`
+    query destinationData {
+      allMarkdownRemark(
+        filter: { frontmatter: { page: { gt: 0 } } }
+        sort: { frontmatter: { page: ASC } }
+      ) {
+        nodes {
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  const nodes = result.data.allMarkdownRemark.nodes
+
+  if (nodes && nodes.length > 0) {
+    nodes.forEach(node => {
+      createPage({
+        path: "/destination/" + node.frontmatter.slug,
+        component: require.resolve("./src/pages/destination.js"),
+        context: { slug: node.frontmatter.slug },
+      })
+    })
+  } else {
+    console.warn("No data found for allMarkdownRemark.nodes")
+  }
+}

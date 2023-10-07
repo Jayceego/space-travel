@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router"
 
 export const pageLinks = [
   { number: "00", page: "home", path: "/" },
-  { number: "01", page: "destination", path: "/destination/moon/" },
+  { number: "01", page: "destination", path: "/destination" },
   { number: "02", page: "crew", path: "/crew/commander/" },
   { number: "03", page: "technology", path: "/technology/launchvehicle/" },
 ]
@@ -65,7 +65,10 @@ export default function Navbar() {
                 key={index}
                 to={link.path}
                 className={` items-center gap-2 uppercase flex ${
-                  location.pathname === link.path ? "nav-active" : ""
+                  location.pathname === link.path ||
+                  location.pathname.startsWith(link.path + "/")
+                    ? "nav-active"
+                    : ""
                 }
                 ${
                   visible
