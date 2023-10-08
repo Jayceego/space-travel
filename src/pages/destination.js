@@ -36,7 +36,7 @@ export default function Destination({ data }) {
       <div className="absolute top-0 w-screen h-full bg-center bg-no-repeat bg-cover -z-10 bg-destinationMobile sm:bg-destinationTablet md:bg-destinationDesktop"></div>
 
       {/* parent container */}
-      <div className="grid items-end w-screen h-screen pt-16 sm:pt-20 md:grid-cols-2 md:pb-36">
+      <div className="grid items-end w-screen h-full pt-7 md:grid-cols-2 md:pb-36">
         {/* left side */}
         <div className="grid">
           <h2 className="mx-auto mb-8 font-normal tracking-widest text-white uppercase sm:mx-0 sm:ml-[10vw] sm:mr-auto text-lg sm:text-xl md:text-head5 font-barlowC">

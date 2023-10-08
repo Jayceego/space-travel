@@ -1,7 +1,7 @@
 import React from "react"
-import Layout from "../../components/Layout"
+import Layout from "../components/Layout"
 
-export default function Commander() {
+export default function Crew() {
   return (
     <Layout>
       <div className="absolute top-0 w-screen h-full bg-center bg-no-repeat bg-cover -z-10 bg-crewMobile sm:bg-crewTablet md:bg-crewDesktop"></div>

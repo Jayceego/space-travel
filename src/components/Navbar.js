@@ -5,8 +5,8 @@ import { useLocation } from "@reach/router"
 export const pageLinks = [
   { number: "00", page: "home", path: "/" },
   { number: "01", page: "destination", path: "/destination" },
-  { number: "02", page: "crew", path: "/crew/commander/" },
-  { number: "03", page: "technology", path: "/technology/launchvehicle/" },
+  { number: "02", page: "crew", path: "/crew" },
+  { number: "03", page: "technology", path: "/technology" },
 ]
 
 export default function Navbar() {
@@ -24,7 +24,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="absolute z-10">
+    <div className="z-10 ">
       <div
         className={`${
           visible
@@ -34,11 +34,17 @@ export default function Navbar() {
       >
         <div className="flex sm:items-center justify-between w-screen md:pt-16 pl-[5vw]">
           {/* logo */}
+
           <svg
             className="flex mt-6 sm:mt-0 items-centers"
             xmlns="http://www.w3.org/2000/svg"
             height="48px"
             width="48px"
+            onClick={() => {
+              // Navigate to the home page without a full page reload
+              window.location.href = "/"
+            }}
+            style={{ cursor: "pointer" }}
           >
             <g fill="none" fill-rule="evenodd">
               <circle cx="24" cy="24" r="24" fill="#FFF" />
