@@ -7,9 +7,9 @@ import { Link } from "gatsby"
 export default function IndexPage() {
   return (
     <Layout>
-      <div className="grid items-end h-screen grid-rows-2 text-center lg:text-left lg:grid-rows-none lg:grid-cols-2 justify-items-center ">
+      <div className="grid items-end sm:pt-5 h-[80vh] grid-rows-2 text-center md:text-left md:grid-rows-none md:grid-cols-2 justify-items-center ">
         {/* contents */}
-        <div className="grid justify-center sm:h-screen place-items-center lg:place-items-start lg:pb-32 sm:justify-between sm:content-end ">
+        <div className="grid justify-center place-items-center md:place-items-start md:pb-32 sm:justify-between sm:content-end ">
           <h3 className="text-base font-normal leading-none text-primary-blue sm:text-xl md:text-head5 font-barlowC">
             SO, YOU WANT TO TRAVEL TO
           </h3>
@@ -32,6 +32,8 @@ export default function IndexPage() {
           EXPLORE
         </Link>
       </div>
+
+      {/* bg */}
       <div className="absolute top-0 w-screen h-screen bg-center bg-no-repeat bg-cover -z-10 bg-homeMobile sm:bg-homeTablet md:bg-homeDesktop"></div>
     </Layout>
   )
