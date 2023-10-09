@@ -97,7 +97,7 @@ export default function Navbar() {
 
         {/* Hamburger */}
         <div
-          className={` ${visible ? "hidden" : "block sm:hidden mt-6"}`}
+          className={` ${visible ? "hidden" : "block sm:hidden mt-6 mr-[5vw]"}`}
           onClick={toggleNavbar}
           onKeyDown={handleKeyPress}
           role="button"
@@ -113,7 +113,9 @@ export default function Navbar() {
         {/* close hamburger */}
         <div
           className={` ${
-            visible ? "block sm:hidden absolute top-10 right-7" : "hidden"
+            visible
+              ? "block sm:hidden absolute top-10 right-7 mr-[5vw]"
+              : "hidden"
           } transition-all`}
           onClick={toggleNavbar}
           onKeyDown={handleKeyPress}

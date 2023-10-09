@@ -16,7 +16,7 @@ export default function Technology({ data }) {
       <div className="absolute top-0 w-screen h-full bg-center bg-no-repeat bg-cover -z-10 bg-technologyMobile sm:bg-technologyTablet md:bg-technologyDesktop"></div>
       <div className="">
         {/* parent container */}
-        <div className="w-screen h-screen pt-24 mx-auto overflow-hidden md:max-w-7xl md:pt-52">
+        <div className="w-screen h-screen pt-24 mx-auto md:max-w-7xl md:pt-52">
           {/* page title */}
           <h2 className="w-screen pb-8 sm:mb-5 text-lg font-normal tracking-widest text-center text-white sm:ml-[5vw] xl:ml-0 uppercase sm:text-left md:w-fit sm:text-xl md:text-head5 font-barlowC">
             <span className="mr-5 font-bold text-white text-opacity-25">
