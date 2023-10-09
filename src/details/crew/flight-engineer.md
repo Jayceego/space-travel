@@ -1,7 +1,7 @@
 ---
 name: Anousheh Ansari
 title: Flight Engineer
-path: ../../images/crew/image-douglas-hurley.png
+path: ../../images/crew/image-anousheh-ansari.png
 slug: flight-engineer
 ---
 

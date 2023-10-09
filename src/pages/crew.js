@@ -6,10 +6,14 @@ import Seo from "../components/seo"
 
 export default function Crew({ data }) {
   const html = data.markdownRemark.html
-  const { name, title, path } = data.markdownRemark.frontmatter
+  const { name, title, path, slug } = data.markdownRemark.frontmatter
 
-  const pagedata = data.allMarkdownRemark.nodes
-  console.log("SLUGGGG : ", pagedata.frontmatter)
+  const pageData = [
+    "commander",
+    "flight-engineer",
+    "mission-specialist",
+    "pilot",
+  ]
 
   return (
     <Layout>
@@ -27,7 +31,7 @@ export default function Crew({ data }) {
         {/* content */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row">
           {/* left */}
-          <div className="flex flex-col order-2 md:ml-[5vw] xl:ml-0 text-center justify-evenly md:text-left sm:order-1 md:pb-20 ">
+          <div className="flex flex-col mb-7 order-2 md:ml-[5vw] xl:ml-0 text-center justify-around md:text-left sm:order-1 md:pb-20 ">
             <div className="order-2 sm:order-1">
               {/* position */}
               <h1 className="mb-1 text-base font-normal text-white uppercase opacity-50 sm:mb-5 md:mb-7 sm:text-2xl md:text-head4 font-bellefair">
@@ -46,21 +50,23 @@ export default function Crew({ data }) {
               />
             </div>
 
-            {/* position */}
-            <div className="flex order-1 gap-4 sm:order-2">
-              {pagedata.map((node, index) => (
+            {/* pagination */}
+            <div className="flex self-center order-1 gap-4 mb-6 md:mb-0 md:self-start sm:order-2">
+              {pageData.map((node, index) => (
                 <Link
-                  onClick={() => navigate(`/crew/${node.frontmatter.slug}`)}
+                  onClick={() => navigate(`/crew/${slug}`)}
                   key={index}
-                  to={`/crew/${node.frontmatter.slug}`}
-                  className="w-3 h-3 bg-white rounded-full md:w-4 md:h-4"
+                  to={`/crew/${node}`}
+                  className={`w-3 h-3 rounded-full md:w-4 md:h-4 ${
+                    node === slug ? "page-active" : "page-not-active"
+                  }`}
                 ></Link>
               ))}
             </div>
           </div>
 
           {/* right */}
-          <div className="relative grid justify-center order-1 w-screen mb-10 md:w-full sm:mb-0 sm:order-2">
+          <div className="relative grid justify-center order-1 w-screen mb-7 md:w-full sm:mb-0 sm:order-2">
             <GatsbyImage
               className="h-fit max-w-[200px] sm:max-w-[350px] md:max-w-full"
               image={path.childImageSharp.gatsbyImageData}
@@ -76,8 +82,11 @@ export default function Crew({ data }) {
 export const Head = () => <Seo title="Crew" />
 
 export const query = graphql`
-  query crewData {
-    markdownRemark(fileAbsolutePath: { regex: "/crew/" }) {
+  query crewData($slug: String) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/crew/" }
+      frontmatter: { slug: { eq: $slug } }
+    ) {
       html
       frontmatter {
         name
@@ -87,14 +96,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData
           }
-        }
-      }
-    }
-
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/crew/" } }) {
-      nodes {
-        frontmatter {
-          slug
         }
       }
     }

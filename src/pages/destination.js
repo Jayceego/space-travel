@@ -5,17 +5,17 @@ import Layout from "../components/Layout"
 import Seo from "../components/seo"
 
 export const query = graphql`
-  query MyQuery($slug: String) {
+  query destination($slug: String) {
     markdownRemark(
-      frontmatter: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/destination/" }
+      frontmatter: { slug: { eq: $slug } }
     ) {
       html
       frontmatter {
+        title
+        slug
         distance
         time
-        slug
-        title
         path {
           childImageSharp {
             gatsbyImageData
@@ -27,12 +27,9 @@ export const query = graphql`
 `
 
 export default function Destination({ data }) {
-  console.log(data)
   const html = data.markdownRemark.html
   const { time, title, distance, path, slug } = data.markdownRemark.frontmatter
   const planet = ["moon", "mars", "europa", "titan"]
-
-  console.log("IMAGEEE : ", time, title, distance, path, slug, html)
 
   return (
     <Layout>
@@ -51,7 +48,7 @@ export default function Destination({ data }) {
             Pick your destination
           </h2>
           <GatsbyImage
-            className=" md:mb-12 mx-10 md:mx-20 md:min-w-[350px] w-fit place-self-center max-w-[170px] sm:max-w-[300px] md:max-w-md"
+            className=" rotate md:mb-12 mx-10 md:mx-20 md:min-w-[350px] w-fit place-self-center max-w-[170px] sm:max-w-[300px] md:max-w-md"
             image={path.childImageSharp.gatsbyImageData}
           />
         </div>
@@ -86,8 +83,11 @@ export default function Destination({ data }) {
           />
 
           {/* details */}
-          <div className="relative grid w-[80vw] md:w-full text-center md:text-left grid-cols-1 justify-items-center md:justify-items-start sm:grid-cols-2 md:grid-cols-4">
+          <div className="relative grid w-[80vw] md:w-full text-center md:text-left grid-cols-1 justify-items-center md:justify-items-start sm:grid-cols-2">
+            {/* line */}
             <div className="absolute divider w-[80vw] sm:w-[70vw] mt-7 md:w-[25vw] md:max-w-md "></div>
+
+            {/* distance */}
             <h1 className="mt-8 font-normal text-white uppercase text-subhead1 font-bellefair">
               <span className="text-sm font-normal font-barlowC text-primary-blue">
                 avg. distance
@@ -95,6 +95,8 @@ export default function Destination({ data }) {
               <br />
               {distance}
             </h1>
+
+            {/* time */}
             <h1 className="mt-8 font-normal text-white uppercase md:mr-auto text-subhead1 font-bellefair">
               <span className="text-sm font-normal font-barlowC text-primary-blue">
                 est. travel time

@@ -8,9 +8,39 @@ body {
   background-color: #0b0d17;
 }
 
+.rotate {
+  animation: rotate 12s linear infinite;
+  -webkit-animation: rotate 12s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); /* Rotate 0 degrees at the start */
+  }
+  100% {
+    transform: rotate(
+      360deg
+    ); /* Rotate 360 degrees (one full rotation) at the end */
+  }
+}
+
 .divider {
   height: 1px;
   background: #383b4b;
+}
+
+.page-active {
+  background: white;
+}
+
+.page-not-active {
+  background: white;
+  opacity: 0.17;
+}
+
+.page-not-active:hover {
+  background: white;
+  opacity: 0.5;
 }
 
 .nav-glass {

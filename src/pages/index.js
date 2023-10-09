@@ -10,7 +10,7 @@ export default function IndexPage() {
       {/* bg */}
       <div className="absolute top-0 w-screen h-screen bg-center bg-no-repeat bg-cover -z-10 bg-homeMobile sm:bg-homeTablet md:bg-homeDesktop"></div>
 
-      <div className="grid items-end h-screen grid-rows-2 pt-16 text-center md:text-left md:grid-rows-none md:grid-cols-2 justify-items-center ">
+      <div className="grid items-end h-screen grid-rows-2 pt-16 overflow-hidden text-center md:text-left md:grid-rows-none md:grid-cols-2 justify-items-center ">
         {/* contents */}
         <div className="grid justify-center place-items-center md:place-items-start md:pb-32 sm:justify-between sm:content-end ">
           <h3 className="text-base font-normal leading-none text-primary-blue sm:text-xl md:text-head5 font-barlowC">
@@ -29,7 +29,7 @@ export default function IndexPage() {
 
         {/* call to action */}
         <Link
-          className="grid self-center text-xl font-normal bg-white rounded-full md:self-end md:mb-32 explore-btn place-items-center text-primary-dark sm:text-head4 font-bellefair"
+          className="grid self-center text-xl font-normal bg-white rounded-full rotate md:self-end md:mb-32 explore-btn place-items-center text-primary-dark sm:text-head4 font-bellefair"
           to="/destination/moon/"
         >
           EXPLORE
