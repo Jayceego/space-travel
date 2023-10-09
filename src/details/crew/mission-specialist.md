@@ -1,5 +1,5 @@
 ---
-name: Mark Richard Shuttleworth
+name: Mark Shuttleworth
 title: MISSION SPECIALIST
 path: ../../images/crew/image-mark-shuttleworth.png
 slug: mission-specialist
