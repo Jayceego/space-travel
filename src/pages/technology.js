@@ -72,7 +72,7 @@ export default function Technology({ data }) {
                 image={portrait.childImageSharp.gatsbyImageData}
               />
               <GatsbyImage
-                className="h-full md:hidden "
+                className="block h-full md:hidden "
                 image={landscape.childImageSharp.gatsbyImageData}
               />
             </div>
