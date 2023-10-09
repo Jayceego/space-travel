@@ -24,7 +24,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-10 ">
+    <div className="absolute z-10">
       <div
         className={`${
           visible

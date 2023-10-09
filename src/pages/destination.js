@@ -2,10 +2,14 @@ import { Link, graphql, navigate } from "gatsby"
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
+import Seo from "../components/seo"
 
 export const query = graphql`
   query MyQuery($slug: String) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    markdownRemark(
+      frontmatter: { slug: { eq: $slug } }
+      fileAbsolutePath: { regex: "/destination/" }
+    ) {
       html
       frontmatter {
         distance
@@ -33,12 +37,13 @@ export default function Destination({ data }) {
   return (
     <Layout>
       {/* background */}
-      <div className="absolute top-0 w-screen h-full bg-center bg-no-repeat bg-cover -z-10 bg-destinationMobile sm:bg-destinationTablet md:bg-destinationDesktop"></div>
+      <div className="absolute top-0 w-screen h-screen bg-center bg-no-repeat bg-cover -z-10 bg-destinationMobile sm:bg-destinationTablet md:bg-destinationDesktop"></div>
 
       {/* parent container */}
-      <div className="grid items-end w-screen h-full pt-7 md:grid-cols-2 md:pb-36">
+      <div className="grid items-end w-screen h-screen py-24 md:grid-cols-2">
         {/* left side */}
-        <div className="grid">
+        <div className="grid items-end h-full">
+          {/* title */}
           <h2 className="mx-auto mb-8 font-normal tracking-widest text-white uppercase sm:mx-0 sm:ml-[10vw] sm:mr-auto text-lg sm:text-xl md:text-head5 font-barlowC">
             <span className="mr-5 font-bold text-white text-opacity-25">
               01
@@ -46,13 +51,13 @@ export default function Destination({ data }) {
             Pick your destination
           </h2>
           <GatsbyImage
-            className=" md:mb-12 mx-10 md:min-w-[350px] w-fit place-self-center max-w-[170px] sm:max-w-[300px] md:max-w-md"
+            className=" md:mb-12 mx-10 md:mx-20 md:min-w-[350px] w-fit place-self-center max-w-[170px] sm:max-w-[300px] md:max-w-md"
             image={path.childImageSharp.gatsbyImageData}
           />
         </div>
 
         {/* right side */}
-        <div className="grid self-start mt-8 md:self-end place-items-center md:place-items-stretch">
+        <div className="grid self-start justify-center mt-8 md:self-end place-items-center md:place-items-stretch">
           {/* navigation */}
           <div className="flex mb-4 gap-9 md:mb-9">
             {planet.map((destination, index) => (
@@ -103,3 +108,5 @@ export default function Destination({ data }) {
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="Destination" />
