@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { Link, graphql, navigate } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Seo from "../components/seo"
 
@@ -54,7 +54,6 @@ export default function Crew({ data }) {
             <div className="flex self-center order-1 gap-4 mb-6 md:mb-0 md:self-start sm:order-2">
               {pageData.map((node, index) => (
                 <Link
-                  onClick={() => navigate(`/crew/${slug}`)}
                   key={index}
                   to={`/crew/${node}`}
                   className={`w-3 h-3 rounded-full md:w-4 md:h-4 ${

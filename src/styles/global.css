@@ -34,13 +34,22 @@ body {
 }
 
 .page-not-active {
-  background: white;
-  opacity: 0.17;
+  background: rgba(255, 255, 255, 0.17);
 }
 
 .page-not-active:hover {
-  background: white;
-  opacity: 0.5;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.tech-active {
+  background-color: #ffffff;
+}
+.tech-not-active {
+  border-color: #ffffff50;
+}
+
+.tech-not-active:hover {
+  border-color: #ffffff;
 }
 
 .nav-glass {
