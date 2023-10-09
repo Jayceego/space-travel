@@ -52,6 +52,12 @@ body {
   border-color: #ffffff;
 }
 
+.landscape,
+.portrait {
+  height: 100%;
+  width: 100%;
+}
+
 .nav-glass {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(40.774227142333984px);
@@ -123,19 +129,22 @@ body {
 /* BREAKPOINTS */
 
 @media (min-width: 1024px) {
-  /* .explore-btn:hover::before {
-    content: "";
-    position: absolute;
-    border-radius: 100%;
-    width: 450px;
-    height: 450px;
-    background-color: #ffffff21;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
-  } */
+  .landscape {
+    display: none !important;
+  }
+  .portrait {
+    display: block !important;
+  }
 }
+@media (max-width: 768px) {
+  .landscape {
+    display: block !important;
+  }
+  .portrait {
+    display: none !important;
+  }
+}
+
 @media (min-width: 768px) {
   .explore-btn:hover::before {
     content: "";

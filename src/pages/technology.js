@@ -18,7 +18,7 @@ export default function Technology({ data }) {
         {/* parent container */}
         <div className="w-screen h-screen pt-24 mx-auto md:max-w-7xl md:pt-52">
           {/* page title */}
-          <h2 className="w-screen pb-8 sm:mb-5 text-lg font-normal tracking-widest text-center text-white sm:ml-[5vw] xl:ml-0 uppercase sm:text-left md:w-fit sm:text-xl md:text-head5 font-barlowC">
+          <h2 className="w-screen sm:max-w-fit pb-8 sm:mb-5 text-lg font-normal tracking-widest text-center text-white sm:ml-[5vw] xl:ml-0 uppercase sm:text-left sm:text-xl md:text-head5 font-barlowC">
             <span className="mr-5 font-bold text-white text-opacity-25">
               03
             </span>
@@ -66,15 +66,11 @@ export default function Technology({ data }) {
             </div>
 
             {/* right */}
-            <div className="relative grid justify-end order-1 w-screen md:mb-0 mb-7 md:w-full sm:mb-10 md:order-2">
-              <GatsbyImage
-                className="hidden h-fit md:block "
-                image={portrait.childImageSharp.gatsbyImageData}
-              />
-              <GatsbyImage
-                className="block h-full md:hidden "
-                image={landscape.childImageSharp.gatsbyImageData}
-              />
+            <div className="justify-end order-1 hidden w-screen md:grid md:mb-0 mb-7 md:w-full sm:mb-10 md:order-2">
+              <GatsbyImage image={portrait.childImageSharp.gatsbyImageData} />
+            </div>
+            <div className="grid justify-end order-1 w-screen md:hidden md:mb-0 mb-7 md:w-full sm:mb-10 md:order-2">
+              <GatsbyImage image={landscape.childImageSharp.gatsbyImageData} />
             </div>
           </div>
         </div>
