@@ -1,5 +1,5 @@
 ---
-name: Douglas Gerald Hurley
+name: Douglas Hurley
 title: COMMANDER
 path: ../../images/crew/image-douglas-hurley.png
 slug: commander
