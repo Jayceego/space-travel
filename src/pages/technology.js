@@ -28,27 +28,9 @@ export default function Technology({ data }) {
           {/* content */}
           <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row">
             {/* left */}
-            <div className="flex flex-col mb-7 md:mb-0 order-2 md:ml-[5vw] xl:ml-0 text-center justify-around md:text-left md:order-1">
-              <div className="order-2 md:order-1">
-                {/* position */}
-                <h1 className="mb-1 text-sm font-normal uppercase opacity-50 text-primary-blue sm:mb-5 md:mb-7 sm:text-base font-bellefair">
-                  {quote}
-                </h1>
-
-                {/* name */}
-                <h1 className="mb-2 text-2xl font-normal text-white uppercase sm:mb-7 md:mb-10 sm:text-4xl md:text-head3 font-bellefair">
-                  {title}
-                </h1>
-
-                {/* description */}
-                <div
-                  className="mb-4 text-sm font-light text-center sm:mb-10 mx-9 sm:mx-26 sm:mx-28 md:mx-0 md:text-left text-primary-blue sm:text-base md:text-lg font-barlow"
-                  dangerouslySetInnerHTML={{ __html: html }}
-                />
-              </div>
-
+            <div className="flex gap-10 flex-col md:flex-row mb-7 md:mb-0 order-2 md:ml-[5vw] xl:ml-0 text-center justify-around md:text-left md:order-1">
               {/* pagination */}
-              <div className="flex self-center order-1 gap-4 mb-6 md:mb-0 md:self-start md:order-2">
+              <div className="flex items-center self-center gap-4 md:flex-col md:mb-0">
                 {techData.map((node, index) => (
                   <Link
                     key={index}
@@ -62,6 +44,24 @@ export default function Technology({ data }) {
                     {index + 1}
                   </Link>
                 ))}
+              </div>
+
+              <div className="my-auto">
+                {/* position */}
+                <h1 className="mb-3 text-sm font-normal uppercase text-primary-blue md:mb-7 sm:text-base font-bellefair">
+                  {quote}
+                </h1>
+
+                {/* name */}
+                <h1 className="mb-5 text-2xl font-normal text-white uppercase md:mb-10 sm:text-4xl md:text-head3 font-bellefair">
+                  {title}
+                </h1>
+
+                {/* description */}
+                <div
+                  className="mb-4 text-sm font-light text-center sm:mb-10 mx-9 sm:mx-26 sm:mx-28 md:mx-0 md:text-left text-primary-blue sm:text-base md:text-lg font-barlow"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
               </div>
             </div>
 
